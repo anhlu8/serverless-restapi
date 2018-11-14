@@ -56,13 +56,19 @@ provider:
 plugins:
   - serverless-offline
 functions:
-  read:
-    handler: features/read.read
+  getTodo:
+    handler: features/read.getTodo
     events:
       - http:
-          path: first_path
+          path: todo
           method: get #use command `sls offline start` to start a localhost route
-
+  createTodo:
+    handler: features/create.createTodo
+    events:
+      - http:
+          path: todo
+          method: post #use command `sls offline start` to start a localhost route
+          
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
 #    Check the event documentation for details
