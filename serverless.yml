@@ -53,10 +53,15 @@ provider:
 #  exclude:
 #    - exclude-me.js
 #    - exclude-me-dir/**
-
+plugins:
+  - serverless-offline
 functions:
-  hello:
-    handler: handler.hello
+  read:
+    handler: features/read.read
+    events:
+      - http:
+          path: first_path
+          method: get #use command `sls offline start` to start a localhost route
 
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
